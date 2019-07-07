@@ -7,9 +7,10 @@ RUN apt-get update -qq && \
 RUN mkdir /project
 
 COPY Gemfile Gemfile.lock /project/
-
 WORKDIR /project
-
 RUN bundle install
-
 COPY . /project
+
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
