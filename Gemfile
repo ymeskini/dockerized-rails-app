@@ -65,6 +65,7 @@ group :test , :development do
   gem 'rack-livereload'
   gem 'foreman'
   gem 'rspec-rails', '~> 3.8'
+  gem 'rubocop', '~> 0.72.0', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
