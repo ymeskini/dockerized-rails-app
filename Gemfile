@@ -58,5 +58,14 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :test , :development do
+  gem 'guard', '~>2.15.0',require:false
+  gem 'guard-livereload','~>2.5.2', require: false
+  gem 'guard-rspec', '~>4.7.2', require: false
+  gem 'rack-livereload'
+  gem 'foreman'
+  gem 'rspec-rails', '~> 3.8'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
