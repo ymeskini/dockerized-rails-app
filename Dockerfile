@@ -1,4 +1,4 @@
-FROM starefossen/ruby-node:2-8-stretch
+FROM smikino/ruby-node:2-10-slim
 
 RUN apt-get update -qq && \
   apt-get install -y nano build-essential libpq-dev && \
