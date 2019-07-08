@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   get 'home/index'
   root 'home#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'new' => 'games#new'
+  post 'score' => 'games#score'
+
+  # new GET  /new(.:format)   games#new
+  # score POST /score(.:format) games#score
 end
