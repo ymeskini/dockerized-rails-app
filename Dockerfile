@@ -1,14 +1,14 @@
-FROM smikino/ruby-node:2-10-slim
+FROM smikino/ruby-node:2-10-alpine
 
-RUN apt-get update -qq && \
-  apt-get install -y nano build-essential libpq-dev && \
-  gem install bundler
+RUN apk add --update build-base \
+  postgresql-dev \
+  bash \
+  && gem install bundler
 
 RUN mkdir /project
-
-COPY Gemfile Gemfile.lock /project/
 WORKDIR /project
-COPY . /project
+COPY Gemfile Gemfile.lock project/
+COPY ./ project/
 
 COPY ./scripts/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

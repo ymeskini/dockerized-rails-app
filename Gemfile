@@ -55,3 +55,4 @@ group :test , :development do
   gem 'rubocop', '~> 0.72.0', require: false
 end
 
+gem 'tzinfo-data'
