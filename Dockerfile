@@ -1,6 +1,6 @@
 FROM smikino/ruby-node:2-10-alpine
 
-RUN apk add --update build-base \
+RUN apk add --no-cache build-base \
   postgresql-dev \
   bash \
   && gem install bundler
