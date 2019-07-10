@@ -8,9 +8,14 @@ RUN mkdir /project
 
 COPY Gemfile Gemfile.lock /project/
 WORKDIR /project
-RUN bundle install
 COPY . /project
 
-COPY entrypoint.sh /usr/bin/
+COPY ./scripts/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
+
+ENV BUNDLE_PATH=/bundle \
+  BUNDLE_BIN=/bundle/bin \
+  GEM_HOME=/bundle
+ENV PATH="${BUNDLE_BIN}:${PATH}"
+
